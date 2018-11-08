@@ -7,7 +7,7 @@ const PlaceDetails = ({ place }) => {
   let regular = null;
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   if (place.hours) {
-    regular = place.hours.find((item) => { console.log(item); return item.hours_type === 'REGULAR'; });
+    regular = place.hours.find(item => item.hours_type === 'REGULAR');
   }
   return (
     <div className={styles.root}>

@@ -13,7 +13,6 @@ class PlaceDetailPage extends Component {
 
   render() {
     const { place } = this.props;
-    console.log(place);
     return (
       <div className="homePageWrapper">
         <PlaceDetails place={place} />

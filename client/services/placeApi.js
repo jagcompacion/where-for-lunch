@@ -17,7 +17,6 @@ export const getPlaceIds = (params) => {
 };
 
 export const getPlaceDetails = (params) => {
-  console.log(params);
   return axios.get(`${PLACE_DETAILS_API_PATH}/`, {
     params,
   }).then(({ data }) => data);
