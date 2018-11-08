@@ -14,7 +14,9 @@ class HomePage extends Component {
   }
 
   handleOnConditionChange = (value) => {
-    this.props.setRadius(value);
+    const { radius, price } = value;
+    this.props.setRadius(radius);
+    this.props.setPrice(price);
   }
   render() {
     const { condition, place } = this.props;
@@ -44,6 +46,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({
     fetchPlaces: placeActions.fetchPlaces,
     setRadius: conditionActions.setRadius,
+    setPrice: conditionActions.setPrice,
   }, dispatch);
 
 HomePage.propTypes = {
@@ -51,6 +54,7 @@ HomePage.propTypes = {
   place: PropTypes.object,
   fetchPlaces: PropTypes.func,
   setRadius: PropTypes.func,
+  setPrice: PropTypes.func,
 };
 export default connect(
   mapStateToProps,
