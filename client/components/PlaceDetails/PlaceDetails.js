@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { tConvert, insertStr } from '../../lib/utils';
 import styles from './PlaceDetails.css';
+import GoogleMap from '../GoogleMap/GoogleMap';
 
 const PlaceDetails = ({ place }) => {
   let regular = null;
@@ -9,6 +10,7 @@ const PlaceDetails = ({ place }) => {
   if (place.hours) {
     regular = place.hours.find(item => item.hours_type === 'REGULAR');
   }
+
   return (
     <div className={styles.root}>
       <div className={styles.name}>{ place.name || 'Where for lunch?' }</div>
@@ -43,6 +45,14 @@ const PlaceDetails = ({ place }) => {
           regular && regular.open.map((item, index) => (
             <div className={styles.operation} key={index}>{days[item.day]}: {tConvert(insertStr(item.start, '2', ':'))} - {tConvert(insertStr(item.end, '2', ':'))}</div>
           ))
+        }
+        {place.coordinates &&
+          <GoogleMap
+            coordinates={{
+              lat: place.coordinates.latitude,
+              lng: place.coordinates.longitude,
+            }}
+          />
         }
       </div>
     </div>
