@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './Place.css';
 
 const Place = ({ place }) => {
@@ -20,6 +21,7 @@ const Place = ({ place }) => {
           </div>
         </div>
         }
+        <div>{place.id && <Link className={styles.viewDetails} to={`/place/${place.id}`}>View Details</Link>}</div>
       </div>
     </div>
   );
