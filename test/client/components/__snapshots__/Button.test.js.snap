@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With Jest snapshot, Button component renders with disable property 1`] = `
+<button
+  className="root undefined"
+  disabled={true}
+/>
+`;
