@@ -1,8 +1,5 @@
 import axios from 'axios';
-import {
-  PLACES_API_PATH,
-  PLACE_DETAILS_API_PATH,
-} from 'constants/apiPaths';
+import { PLACES_API_PATH } from 'constants/apiPaths';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.headers.common = {
@@ -16,8 +13,6 @@ export const getPlaceIds = (params) => {
   }).then(({ data }) => data);
 };
 
-export const getPlaceDetails = (params) => {
-  return axios.get(`${PLACE_DETAILS_API_PATH}/`, {
-    params,
-  }).then(({ data }) => data);
+export const getPlaceDetails = (id) => {
+  return axios.get(`${PLACES_API_PATH}/${id}`).then(({ data }) => data);
 };

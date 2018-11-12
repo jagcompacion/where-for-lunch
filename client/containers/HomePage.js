@@ -12,12 +12,13 @@ class HomePage extends Component {
   handleOnClick = () => {
     this.props.fetchPlaces(this.props.condition);
   }
-
-  handleOnConditionChange = (value) => {
-    const { radius, price } = value;
+  handleRadiusChange = (radius) => {
     this.props.setRadius(radius);
+  }
+  onPriceChange = (price) => {
     this.props.setPrice(price);
   }
+
   render() {
     const { condition, place } = this.props;
     const { latitude, longitude } = condition;
@@ -25,7 +26,11 @@ class HomePage extends Component {
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
-          <Condition condition={condition} action={this.handleOnConditionChange}/>
+          <Condition
+            condition={condition}
+            onRadiusChange={this.handleRadiusChange}
+            onPriceChange={this.onPriceChange}
+          />
           <Button
             disabled={!latitude || !longitude}
             onClick={this.handleOnClick}

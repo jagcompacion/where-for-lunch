@@ -7,24 +7,17 @@ import styles from './Condition.css';
 export default class Condition extends PureComponent {
   static propTypes = {
     condition: PropTypes.object,
-    action: PropTypes.func,
+    onRadiusChange: PropTypes.func.isRequired,
+    onPriceChange: PropTypes.func.isRequired,
   };
 
   handleOnBlurAction = (e) => {
-    const { condition: { price } } = this.props;
     const { value: radius } = e.target;
-    this.props.action({
-      price,
-      radius,
-    });
+    this.props.onRadiusChange(radius);
   }
 
   handleOnChangeAction = (price) => {
-    const { condition: { radius } } = this.props;
-    this.props.action({
-      price,
-      radius,
-    });
+    this.props.onPriceChange(price);
   }
 
   render() {
@@ -41,3 +34,4 @@ export default class Condition extends PureComponent {
     );
   }
 }
+

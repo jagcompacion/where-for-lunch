@@ -1,26 +1,20 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Price from 'client/components/Price/Price';
 import renderer from 'react-test-renderer';
 
-test('With Enzyme, Price component will show 3 checks', () => {
-  const price = '3,4';
-  const wrapper = shallow(
+test('With Enzyme, Price component will show 2 checkbox that are checked', () => {
+  const price = [3, 4];
+  const wrapper = mount(
     <Price price={price} />,
   );
-  let total = 0;
-  const b = wrapper.find({ type: 'checkbox' });
-  b.map((item) => {
-    if (item.props().checked) total += 1;
-    return false;
-  });
-  expect(total).toBe(2);
+  const b = wrapper.find({ type: 'checkbox' }).findWhere(n => n.props().checked);
+  expect(b.length).toBe(2);
 });
 
-test('With Jest snapshot, Button component renders with disable property', () => {
-  const price = '3,4';
+test('With Jest snapshot, Price component renders with no checkbox checked', () => {
   const b = renderer
-    .create(<Price price={price} />)
+    .create(<Price />)
     .toJSON();
   expect(b).toMatchSnapshot();
 });

@@ -5,6 +5,7 @@ export function getRandom(list) {
 }
 
 export function tConvert(time) {
+  if (!time) return null;
   let newTime = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
   if (newTime.length > 1) {
     newTime = newTime.slice(1);
@@ -14,6 +15,7 @@ export function tConvert(time) {
   return newTime.join('');
 }
 
-export function insertStr(str, index, value) {
+export function insertStr(str = '', index = 0, value = '') {
+  if (!str) return null;
   return str.substr(0, index) + value + str.substr(index);
 }

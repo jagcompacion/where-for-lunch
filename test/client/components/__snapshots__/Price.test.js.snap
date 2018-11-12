@@ -1,48 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`With Jest snapshot, Button component renders with disable property 1`] = `
-<div
-  className="root"
->
+exports[`With Jest snapshot, Price component renders with no checkbox checked 1`] = `
+<div>
   <div>
     price range:
   </div>
   <div>
-    <span>
+    <span
+      className="root"
+    >
       <input
-        checked={false}
         onChange={[Function]}
         type="checkbox"
+        value={1}
       />
       <span>
         $
       </span>
     </span>
-    <span>
+    <span
+      className="root"
+    >
       <input
-        checked={false}
         onChange={[Function]}
         type="checkbox"
+        value={2}
       />
       <span>
         $$
       </span>
     </span>
-    <span>
+    <span
+      className="root"
+    >
       <input
-        checked={true}
         onChange={[Function]}
         type="checkbox"
+        value={3}
       />
       <span>
         $$$
       </span>
     </span>
-    <span>
+    <span
+      className="root"
+    >
       <input
-        checked={true}
         onChange={[Function]}
         type="checkbox"
+        value={4}
       />
       <span>
         $$$$

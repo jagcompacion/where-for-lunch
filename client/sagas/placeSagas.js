@@ -12,7 +12,9 @@ import {
 
 function* fetchPlace(action) {
   try {
-    const places = yield call(getPlaceIds, action.payload);
+    const { payload } = action;
+    const params = { ...payload, price: payload.price.toString() };
+    const places = yield call(getPlaceIds, params);
     const randomPlace = getRandom(places);
     yield put(placeActions.setDetails(randomPlace));
   } catch (e) {
