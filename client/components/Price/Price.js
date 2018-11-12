@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Checkbox from '../Checkbox/Checkbox';
 
 export default class Price extends Component {
   static propTypes = {
@@ -26,15 +27,13 @@ export default class Price extends Component {
         <div>price range:</div>
         <div>
           {options.map((item, index) => (
-            <span key={index}>
-              <input
-                type="checkbox"
-                value={item.length}
-                onChange={this.handleOnChangeAction}
-                checked={price && price.includes(item.length)}
-              ></input>
-              <span>{item}</span>
-            </span>
+            <Checkbox
+              key={index}
+              value={item.length}
+              onChange={this.handleOnChangeAction}
+              checked={price && price.includes(item.length)}
+              label={item}
+            />
           ))}
         </div>
       </div>
