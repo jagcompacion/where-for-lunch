@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With Jest snapshot, PlaceDetails component renders rating section when present 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="name"
+  >
+    Where for lunch?
+  </div>
+  <div
+    className="box"
+  >
+    <div
+      className="photos"
+    />
+    <div>
+      Address: 
+    </div>
+    <div>
+      Contact no: 
+    </div>
+    <div>
+      Category: 
+    </div>
+    <div>
+      Price range: 
+    </div>
+    <div
+      className="ratingWrapper"
+    >
+      Ratings:
+       
+      <div
+        className="rating"
+      >
+        <div
+          className="ratingScore"
+        >
+           reviews
+        </div>
+        <div
+          className="stars"
+        >
+          <div
+            className="emptyStars"
+          />
+          <div
+            className="fullStars"
+            style={
+              Object {
+                "width": "70%",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      Hours of operation:
+    </div>
+  </div>
+</div>
+`;
