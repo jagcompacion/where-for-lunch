@@ -12,10 +12,13 @@ class HomePage extends Component {
   handleOnClick = () => {
     this.props.fetchPlaces(this.props.condition);
   }
-
-  handleOnConditionChange = (value) => {
-    this.props.setRadius(value);
+  handleRadiusChange = (radius) => {
+    this.props.setRadius(radius);
   }
+  onPriceChange = (price) => {
+    this.props.setPrice(price);
+  }
+
   render() {
     const { condition, place } = this.props;
     const { latitude, longitude } = condition;
@@ -23,7 +26,11 @@ class HomePage extends Component {
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
-          <Condition condition={condition} action={this.handleOnConditionChange}/>
+          <Condition
+            condition={condition}
+            onRadiusChange={this.handleRadiusChange}
+            onPriceChange={this.onPriceChange}
+          />
           <Button
             disabled={!latitude || !longitude}
             onClick={this.handleOnClick}
@@ -44,6 +51,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({
     fetchPlaces: placeActions.fetchPlaces,
     setRadius: conditionActions.setRadius,
+    setPrice: conditionActions.setPrice,
   }, dispatch);
 
 HomePage.propTypes = {
@@ -51,6 +59,7 @@ HomePage.propTypes = {
   place: PropTypes.object,
   fetchPlaces: PropTypes.func,
   setRadius: PropTypes.func,
+  setPrice: PropTypes.func,
 };
 export default connect(
   mapStateToProps,

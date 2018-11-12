@@ -1,26 +1,37 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Input from 'components/Input/Input';
+import Price from 'components/Price/Price';
 import styles from './Condition.css';
 
 export default class Condition extends PureComponent {
   static propTypes = {
     condition: PropTypes.object,
-    action: PropTypes.func,
+    onRadiusChange: PropTypes.func.isRequired,
+    onPriceChange: PropTypes.func.isRequired,
   };
 
   handleOnBlurAction = (e) => {
-    this.props.action(e.target.value);
+    const { value: radius } = e.target;
+    this.props.onRadiusChange(radius);
+  }
+
+  handleOnChangeAction = (price) => {
+    this.props.onPriceChange(price);
   }
 
   render() {
-    const { condition: { radius } } = this.props;
+    const { condition: { radius, price } } = this.props;
     return (
-      <div className={styles.root}>
-        <span>radius:</span>
-        <Input defaultValue={radius} onBlurAction={this.handleOnBlurAction}></Input>
-        <span>meters</span>
+      <div>
+        <div className={styles.radius}>
+          <span>radius:</span>
+          <Input defaultValue={radius} onBlurAction={this.handleOnBlurAction}></Input>
+          <span>meters</span>
+        </div>
+        <Price price={price} onChange={this.handleOnChangeAction} />
       </div>
     );
   }
 }
+

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With Jest snapshot, Price component renders with no checkbox checked 1`] = `
+<div>
+  <div>
+    price range:
+  </div>
+  <div>
+    <span
+      className="root"
+    >
+      <input
+        onChange={[Function]}
+        type="checkbox"
+        value={1}
+      />
+      <span>
+        $
+      </span>
+    </span>
+    <span
+      className="root"
+    >
+      <input
+        onChange={[Function]}
+        type="checkbox"
+        value={2}
+      />
+      <span>
+        $$
+      </span>
+    </span>
+    <span
+      className="root"
+    >
+      <input
+        onChange={[Function]}
+        type="checkbox"
+        value={3}
+      />
+      <span>
+        $$$
+      </span>
+    </span>
+    <span
+      className="root"
+    >
+      <input
+        onChange={[Function]}
+        type="checkbox"
+        value={4}
+      />
+      <span>
+        $$$$
+      </span>
+    </span>
+  </div>
+</div>
+`;
