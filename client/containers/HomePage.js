@@ -18,12 +18,17 @@ class HomePage extends Component {
   }
   render() {
     const { condition, place } = this.props;
+    const { latitude, longitude } = condition;
     return (
       <div className="homePageWrapper">
         <Place place={place} />
         <div className="searchWrapper">
           <Condition condition={condition} action={this.handleOnConditionChange}/>
-          <Button onClick={this.handleOnClick} theme="homepageClick" />
+          <Button
+            disabled={!latitude || !longitude}
+            onClick={this.handleOnClick}
+            theme="homepageClick"
+          />
         </div>
       </div>
     );
