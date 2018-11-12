@@ -8,7 +8,7 @@ import PlaceDetails from 'components/PlaceDetails/PlaceDetails';
 class PlaceDetailPage extends Component {
   componentDidMount() {
     const { match: { params } } = this.props;
-    this.props.fetchPlaceDetails(params);
+    this.props.fetchPlaceDetails(params.id);
   }
 
   render() {
