@@ -1,33 +1,38 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Price.css';
 
-export default class Price extends PureComponent {
+export default class Price extends Component {
   static propTypes = {
-    price: PropTypes.string,
+    price: PropTypes.arrayOf(PropTypes.number),
     onChange: PropTypes.func,
   };
 
   handleOnChangeAction = (e) => {
-    const { price } = this.props;
-    const value = price.length ? price.split(',') : [];
-    const index = value.indexOf(e);
-    if (index > -1) value.splice(index, 1);
-    else value.push(e);
-    this.props.onChange(value.toString());
+    const { value } = e.target;
+    const { price, onChange } = this.props;
+    const newPrice = price;
+    const newValue = parseInt(value, 10);
+    const index = price.indexOf(newValue);
+    if (index > -1) newPrice.splice(index, 1);
+    else newPrice.push(newValue);
+    onChange(newPrice);
   }
 
   render() {
     const { price } = this.props;
-    const value = price.split(',');
     const options = ['$', '$$', '$$$', '$$$$'];
     return (
-      <div className={styles.root}>
+      <div>
         <div>price range:</div>
         <div>
           {options.map((item, index) => (
-            <span key={item}>
-              <input type="checkbox" onChange={() => this.handleOnChangeAction((index + 1).toString())} checked={value.includes((index + 1).toString())}></input>
+            <span key={index}>
+              <input
+                type="checkbox"
+                value={item.length}
+                onChange={this.handleOnChangeAction}
+                checked={price && price.includes(item.length)}
+              ></input>
               <span>{item}</span>
             </span>
           ))}
