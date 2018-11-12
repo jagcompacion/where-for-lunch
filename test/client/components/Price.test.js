@@ -1,11 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Price from 'client/components/Price/Price';
 import renderer from 'react-test-renderer';
 
 test('With Enzyme, Price component will show 2 checkbox that are checked', () => {
   const price = [3, 4];
-  const wrapper = shallow(
+  const wrapper = mount(
     <Price price={price} />,
   );
   const b = wrapper.find({ type: 'checkbox' }).findWhere(n => n.props().checked);
