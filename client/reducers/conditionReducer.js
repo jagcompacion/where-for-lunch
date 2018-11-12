@@ -3,7 +3,7 @@ import * as actionTypes from 'actions/conditionActionTypes';
 
 const initialState = {
   radius: 500,
-  price: '',
+  price: [],
 };
 const conditionReducer = handleActions(
   {
